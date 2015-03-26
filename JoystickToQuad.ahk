@@ -7,6 +7,7 @@ ThrottleSensitivity := 1
 ButtonFire = 1
 ButtonEngines = 2
 JoystickNumber = 1
+ExpoRate = 0.40 ; 0 is regular linear, 1 is full expo
 
 ; END OF CONFIG SECTION -- Don't change anything below this point unless you want
 ; to alter the basic nature of the script.
@@ -65,6 +66,11 @@ inputThrottle := -1 * (inputThrottle - 100)/100 ; (0-1)
 inputX := (inputX - 50)/50 ; (-1,1)
 inputY := (inputY - 50)/50 ; (-1,1)
 inputSlider := (inputSlider - 50)/50 ; (-1,1)
+
+; expo rates
+inputX := (inputX * Abs(inputX)) * ExpoRate + inputX * (1 - ExpoRate)
+inputY := (inputY * Abs(inputY)) * ExpoRate + inputX * (1 - ExpoRate)
+
 
 if (IsEnabled == false) {
   return
