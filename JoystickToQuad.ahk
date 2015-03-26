@@ -78,10 +78,10 @@ CurrentEnginePower4 := (ThrottleSensitivity * inputThrottle) + (XYSensitivity * 
 
 ; normalize power
 biggest := LargestValue(CurrentEnginePower1, CurrentEnginePower2, CurrentEnginePower3, CurrentEnginePower4)
-CurrentEnginePower1 := CurrentEnginePower1 * inputThrottle / biggest
-CurrentEnginePower2 := CurrentEnginePower2 * inputThrottle / biggest
-CurrentEnginePower3 := CurrentEnginePower3 * inputThrottle / biggest
-CurrentEnginePower4 := CurrentEnginePower4 * inputThrottle / biggest
+CurrentEnginePower1 := (CurrentEnginePower1 / biggest) + (inputThrottle - 1)
+CurrentEnginePower2 := (CurrentEnginePower2 / biggest) + (inputThrottle - 1)
+CurrentEnginePower3 := (CurrentEnginePower3 / biggest) + (inputThrottle - 1)
+CurrentEnginePower4 := (CurrentEnginePower4 / biggest) + (inputThrottle - 1)
 
 if (DebugEngineMode == true) {
   Tooltip, %biggest%`, x %inputX%`, y %inputY%`, s %inputSlider%`, t %inputThrottle%`, e1 %CurrentEnginePower1%`,e2 %CurrentEnginePower2%`,e3 %CurrentEnginePower3%`,e4 %CurrentEnginePower4%`
