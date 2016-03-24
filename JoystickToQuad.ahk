@@ -1,4 +1,5 @@
 DebugEngineMode := false
+SetKeyDelay, 0
 
 XYSensitivity := 4
 RotateSensitivity := -4
